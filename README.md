@@ -163,23 +163,11 @@ The following tools were used in the construction of the project:
 The application that we will develop is a digital menu for a fictional restaurant, known as foodExplorer.
 
 ---
-## 🦸 Author
-
-<a href="https://blog.rocketseat.com.br/author/exodo/">
- <img style="border-radius: 50%;" src="https://github.com/exodogurgel/exodogurgel/blob/main/images/b11993be-e073-4a30-adae-2fee655ccdd5.png?raw=true" width="100px;" alt="Êxodo Gurgel"/> 
- <br />
- <sub><b>Êxodo Gurgel</b></sub></a> <a href="https://blog.rocketseat.com.br/author/exodo/" title="Rocketseat"></a> 🚀
- <br />
-
-[![Linkedin Badge](https://img.shields.io/badge/-Exodo-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/exodo-gurgel/)](https://www.linkedin.com/in/exodo-gurgel/) 
-[![Gmail Badge](https://img.shields.io/badge/-exodowellis@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:exodowellis@gmail.com)](mailto:exodowellis@gmail.com)
-
----
 
 ## 📝 License
 
 This project is under the license [MIT](./LICENSE).
 
-Made with ❤️ by Êxodo Gurgel 👋🏽 [Get in Touch!](Https://www.linkedin.com/in/exodo-gurgel/)
+Made with ❤️ by Ben-Hur Bueno 👋🏽 [Get in Touch!](www.linkedin.com/in/ben-hur-bueno)
 
 ---
