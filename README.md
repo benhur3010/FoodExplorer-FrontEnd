@@ -79,7 +79,7 @@ In this challenge, the following topics were addressed:
 
 ### Deploy
 
-[Food Explorer](https://foodexplorer-benhur3010.netlify.app/)
+[Food Explorer](https://food-explorer-benhur.netlify.app)
 
 ---
 
