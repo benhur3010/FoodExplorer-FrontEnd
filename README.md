@@ -80,6 +80,7 @@ In this challenge, the following topics were addressed:
 ### Deploy
 
 [Food Explorer](https://food-explorer-benhur.netlify.app)
+[Admin Access] (user: admin@email.com / pass: 123456)
 
 ---
 
@@ -101,9 +102,6 @@ Before you begin, you will need to have the following tools installed on your ma
 ```bash
 # Clone this repository
 $ git clone git@github.com:benhur3010/FoodExplorer-BackEnd.git
-
-# Access the project folder in your terminal
-$ cd food-explorer-backend
 
 # Install the dependencies
 $ npm install
