@@ -4,16 +4,6 @@
     <a href="#"> Food Explorer </a>
 </h1>
 
-<p align="center">
-	
-  <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&color=49AA26&labelColor=000000" alt="welcome!" />
-	
-  <img src="https://img.shields.io/github/languages/count/exodogurgel/food-explorer-frontend" alt="languages" />
-	
-  <img alt="Github License" src="https://img.shields.io/github/license/exodogurgel/food-explorer-frontend" />
-
-</p>
-
 <h4 align="center"> 
 	 Status: Finished
 </h4>
