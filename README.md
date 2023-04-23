@@ -80,7 +80,8 @@ In this challenge, the following topics were addressed:
 ### Deploy
 
 [Food Explorer](https://food-explorer-benhur.netlify.app)
-[Admin Access] (user: admin@email.com / pass: 123456)
+
+Admin Access (user: admin@email.com / pass: 123456)
 
 ---
 
