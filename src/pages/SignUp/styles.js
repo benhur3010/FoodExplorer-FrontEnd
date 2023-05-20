@@ -20,7 +20,7 @@ export const Container = styled.div`
 
   > div {
     max-width: 70rem;
-    animation: increaseSize 0.5s ease;
+    animation: animateGrow 0.5s ease;
     h1 {
       font-family: "Roboto", "serif";
       font-size: 4.2rem;
@@ -39,13 +39,13 @@ export const Container = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const SignUpForm = styled.form`
   width: 100%;
   max-width: 70rem;
   padding: 0 2.4rem;
   margin: 0 auto;
   overflow-x: hidden;
-  animation: rotateSignUp 0.3s linear;
+  animation: spinSignUp 0.3s linear;
 
   > h1 {
     display: none;
@@ -125,7 +125,7 @@ export const Form = styled.form`
     }
   }
 
-  @keyframes rotateSignUp {
+  @keyframes spinSignUp {
     0% {
       transform: rotate(180deg);
       opacity: 0;
