@@ -8,18 +8,16 @@ import { Requests } from "../pages/pagesAdmin/Requests";
 import { NewDish } from "../pages/pagesAdmin/NewDish";
 import { EditDish } from "../pages/pagesAdmin/EditDish";
 
-export function AppAdminRoutes () {
+export function AppAdminRoutes() {
   return (
     <Routes>
-
-      <Route path="/" element={ <Home/> }/>
-      <Route path="/dishview/:id" element={ <DishView/> }/>
-      <Route path="/favorites" element={ <Favorites/> }/>
-      <Route path="/menu" element={ <Menu/> }/>
-      <Route path="/requests" element={ <Requests/> }/>
-      <Route path="/newdish" element={ <NewDish/> }/>
-      <Route path="/editdish/:id" element={ <EditDish/> }/>
-
+      <Route path="/" element={<Home />} />
+      <Route path="/dishview/:id" element={<DishView />} />
+      <Route path="/favorites" element={<Favorites />} />
+      <Route path="/menu" element={<Menu />} />
+      <Route path="/carrinho" element={<Requests />} />
+      <Route path="/newdish" element={<NewDish />} />
+      <Route path="/editdish/:id" element={<EditDish />} />
     </Routes>
-  )
+  );
 }
