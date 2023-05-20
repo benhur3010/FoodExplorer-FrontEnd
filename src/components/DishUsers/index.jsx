@@ -11,111 +11,94 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { ButtonText } from "../ButtonText";
 
-export function DishUsers ({ data, onClick, isFavorite=false, ...rest }) {
-    const [cart, setCart] = useCart();
-    const [amount, setAmount] = useState(1);
-    const navigate = useNavigate();
-    const { id } = data;
-    const [imageDish, setImageDish] = useState(null);
+export function DishUsers({ data, onClick, isFavorite = false, ...rest }) {
+  const [cart, setCart] = useCart();
+  const [amount, setAmount] = useState(1);
+  const navigate = useNavigate();
+  const { id } = data;
+  const [imageDish, setImageDish] = useState(null);
 
-    function handleClickImage () {
-        navigate(`/dishview/${id}`);
+  function handleClickImage() {
+    navigate(`/detalhe-do-produto/${id}`);
+  }
+
+  function handleDecrease() {
+    if (amount <= 1) {
+      return alert("O valor mínimo é um prato por pedido.");
+    }
+    setAmount(prevState => prevState - 1);
+  }
+
+  function handleIncrease() {
+    if (amount >= 15) {
+      return alert("Só são permitidos quinze pratos por pedido.");
+    }
+    setAmount(prevState => prevState + 1);
+  }
+
+  function handleAddNewItemCart() {
+    const newItemCart = {
+      id: data.id,
+      name: data.name,
+      imageDish: imageDish,
+      amount,
+      unit_price: data.price,
+      total_price: amount * data.price
+    };
+
+    setCart(prevCart => [...prevCart, newItemCart]);
+    setAmount(1);
+  }
+
+  useEffect(() => {
+    async function fetchImageDish() {
+      if (data) {
+        setImageDish(`${api.defaults.baseURL}/files/${data.avatar_dish}`);
+      }
     }
 
-    function handleDecrease () {
-        if(amount <= 1) {
-            return alert("O valor mínimo é um prato por pedido.");
-        }
-        setAmount(prevState => prevState -1);
-    }
+    fetchImageDish();
+  }, [data]);
 
-    function handleIncrease () {
-        if(amount >= 15) {
-            return alert("Só são permitidos quinze pratos por pedido.");
-        }
-        setAmount(prevState => prevState + 1);
-    }
+  return (
+    <Container {...rest}>
+      <button onClick={onClick}>
+        {isFavorite ? <FaHeart className="redHeart" /> : <FiHeart />}
+      </button>
 
-    function handleAddNewItemCart () {
-        const newItemCart = {
-            id: data.id,
-            name: data.name,
-            imageDish: imageDish,
-            amount,
-            unit_price: data.price,
-            total_price: amount * data.price
-        };
+      <DishImage>
+        <img
+          src={imageDish}
+          alt={`Ìmagem do prato - ${data.name}`}
+          onClick={handleClickImage}
+        />
+      </DishImage>
 
-        setCart(prevCart => [...prevCart, newItemCart]);
-        setAmount(1);
+      <ButtonText
+        title={data.name}
+        icon={IoIosArrowForward}
+        onClick={handleClickImage}
+      />
 
-    }
+      <h2>{data.description}</h2>
 
-    useEffect(() => {
-        async function fetchImageDish () {
-            if(data) {
-            setImageDish(`${api.defaults.baseURL}/files/${data.avatar_dish}`);
-        }
-        }
+      <span>{`R$ ${data.price.toFixed(2)}`}</span>
 
-        fetchImageDish();
-    }, [data]);
+      <footer>
+        <div>
+          <button type="button" onClick={handleDecrease}>
+            <FiMinus />
+          </button>
 
-    return (
-        <Container {...rest}>
-            <button
-            onClick={onClick}
-            >
-                {isFavorite ? <FaHeart
-                className="redHeart"/> : <FiHeart/>} 
-            </button>
-            
-            <DishImage>
-                <img
-                src={imageDish} 
-                alt={`Ìmagem do prato - ${data.name}`}
-                onClick={handleClickImage}
-                />
-            </DishImage>
+          <span>{amount}</span>
 
-            <ButtonText
-            title={data.name}
-            icon={IoIosArrowForward}
-            onClick={handleClickImage}
-            />
+          <button type="button" onClick={handleIncrease}>
+            <FiPlus />
+          </button>
+        </div>
 
-            <h2>{data.description}</h2>
-            
-            <span>{`R$ ${data.price.toFixed(2)}`}</span>
-
-        <footer>
-            <div>
-            <button
-            type="button"
-            onClick={handleDecrease}
-            >
-                <FiMinus/>
-            </button>
-
-            <span
-            >
-                {amount}
-            </span>
-
-            <button
-            type="button"
-            onClick={handleIncrease}
-            >
-                <FiPlus/>
-            </button>
-
-            </div>
-
-            <Button 
-            title="incluir"
-            onClick={handleAddNewItemCart}
-            />
-        </footer>
-        </Container>
-    )
+        <Button title="incluir" onClick={handleAddNewItemCart} />
+      </footer>
+    </Container>
+  );
 }

@@ -12,7 +12,7 @@ export function AppAdminRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/dishview/:id" element={<DishView />} />
+      <Route path="/detalhe-do-produto/:id" element={<DishView />} />
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/menu" element={<Menu />} />
       <Route path="/carrinho" element={<Requests />} />

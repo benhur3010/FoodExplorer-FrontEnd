@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import { DishView } from "../pages/pagesUsers/DishView";
+import { ProductDetail } from "../pages/pagesUsers/ProductDetail";
 import { Favorites } from "../pages/pagesUsers/Favorites";
 import { Home } from "../pages/pagesUsers/Home";
 import { Menu } from "../pages/pagesUsers/Menu";
@@ -12,7 +12,7 @@ export function AppUsersRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/dishview/:id" element={<DishView />} />
+      <Route path="/detalhe-do-produto/:id" element={<ProductDetail />} />
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/menu" element={<Menu />} />
       <Route path="/payment" element={<Payment />} />
