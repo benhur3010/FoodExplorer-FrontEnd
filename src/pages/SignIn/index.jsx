@@ -1,5 +1,6 @@
-import { Form, Container } from "./styles";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { TailSpin } from "react-loader-spinner";
 
 import { useAuth } from "../../hooks/auth";
 
@@ -7,85 +8,73 @@ import { Title } from "../../components/Title";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 
-import { useState, useEffect } from "react";
-import { TailSpin } from "react-loader-spinner";
+import { Container, Login } from "./styles";
 
-export function SignIn () {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+function SignIn() {
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const { signIn, isLoading } = useAuth();
 
-    const { signIn, isLoading } = useAuth();
+  const [isScreenDesktop, setIsScreenDesktop] = useState(false);
 
-    const [isScreenDesktop, setIsScreenDesktop] = useState(false);
+  const handleSignIn = () => {
+    signIn(credentials);
+  };
 
-    function handleSignIn() {
-        signIn({ email, password })
-    }
+  const handleInputChange = e => {
+    setCredentials({
+      ...credentials,
+      [e.target.id]: e.target.value
+    });
+  };
 
-    useEffect(() => {
-        const handleWindowResize = () => {
-            setIsScreenDesktop(window.innerWidth > 800);
-        }
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setIsScreenDesktop(window.innerWidth > 800);
+    };
 
-        handleWindowResize();
+    handleWindowResize();
 
-        window.addEventListener("resize", handleWindowResize);
-        return () => window.removeEventListener("resize", handleWindowResize);
-    }, []);
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
 
-    return (
-        <Container>
+  return (
+    <Container>
+      <Title />
+      <Login>
+        <Title />
+        <h1>Faça seu Login 😊</h1>
 
-                <Title/>
-                <Form>
+        <label htmlFor="email">Email</label>
+        <Input
+          id="email"
+          type="text"
+          placeholder="exemplo@email.com.br"
+          onChange={handleInputChange}
+        />
 
-                <Title/>
-                <h1>Faça Login</h1>
+        <label htmlFor="password">Senha</label>
+        <Input
+          id="password"
+          type="password"
+          placeholder="No mínimo 6 caracteres"
+          onChange={handleInputChange}
+        />
 
-                <label htmlFor="email">Email</label>
-                <Input
-                    id="email"
-                    type="text"
-                    placeholder="Exemplo: exemplo@exemplo.com.br"
-                    onChange={e => setEmail(e.target.value)}
-                />
+        {isLoading ? (
+          <div className="spinner">
+            <TailSpin color="#126b37" width="60" height="80" />
+          </div>
+        ) : (
+          <>
+            <Button title="Entrar" onClick={handleSignIn} />
 
-                <label htmlFor="password">Senha</label>
-                <Input
-                    id="password"
-                    type="password"
-                    placeholder="No mínimo 6 caracteres"
-                    onChange={e => setPassword(e.target.value)}
-                />
-
-            {
-                isLoading ?
-                (
-                <div className="loader">
-                    <TailSpin
-                    color="#126b37"
-                    width="60"
-                    height="80"
-                    />
-                </div>
-                )
-                :
-                (
-                <>
-
-                <Button 
-                title="Entrar"
-                onClick={handleSignIn}
-                />
-
-                <Link to="/register">Criar uma conta</Link>
-                </>
-                )
-            }
-                </Form>
-
-        </Container>
-    )
+            <Link to="/register">Criar uma conta</Link>
+          </>
+        )}
+      </Login>
+    </Container>
+  );
 }
 
-
+export { SignIn };

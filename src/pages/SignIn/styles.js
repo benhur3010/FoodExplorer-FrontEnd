@@ -1,17 +1,47 @@
 import styled from "styled-components";
 
+const increaseSizeAnimation = `
+  @keyframes increaseSize {
+    from {
+      opacity: 0;
+      transform: scale(0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+`;
+
+const rotateSignInAnimation = `
+  @keyframes rotateSignIn {
+    from {
+      transform: rotate(-180deg);
+      opacity: 0;
+      transform: scale(0);
+    }
+  
+    to {
+      transform: rotate(0);
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+`;
+
 export const Container = styled.div`
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin: auto;
+  align-items: center;
   width: 100%;
-  height: 100vh;
+  margin: 0 auto;
   padding: 0 2.6rem;
+  height: 100vh;
   gap: 7rem;
   overflow-x: hidden;
 
-  .loader {
+  .spinner {
     margin: auto;
     display: flex;
     align-items: center;
@@ -20,7 +50,7 @@ export const Container = styled.div`
 
   > div {
     max-width: 70rem;
-    animation: increaseSize 0.5s ease;
+    animation: 0.5s ease increaseSize;
     h1 {
       font-family: "Roboto", "serif";
       font-size: 4.2rem;
@@ -43,7 +73,7 @@ export const Container = styled.div`
     }
   }
 
-  @media (max-width: 819px) {
+  @media (max-width: 800px) {
     > div {
       display: none;
     }
@@ -53,25 +83,15 @@ export const Container = styled.div`
     padding: 0 10.8rem;
   }
 
-  @keyframes increaseSize {
-    0% {
-      opacity: 0;
-      scale: 0;
-    }
-
-    100% {
-      opacity: 1;
-      scale: 1;
-    }
-  }
+  ${increaseSizeAnimation}
 `;
 
-export const Form = styled.form`
+export const Login = styled.form`
   width: 100%;
   max-width: 70rem;
-  margin: 0 auto;
+  margin: auto;
   padding: 0 2.4rem;
-  animation: rotateSignIn 0.3s linear;
+  animation: 0.3s linear rotateSignIn;
 
   > h1 {
     display: none;
@@ -80,28 +100,6 @@ export const Form = styled.form`
   > div:first-child {
     margin-bottom: 7.3rem;
     padding: 0;
-
-    @media (max-width: 395px) {
-      > h1 {
-        font-size: 3.4rem;
-      }
-
-      img {
-        width: 3.5rem;
-        height: 3.5rem;
-      }
-    }
-
-    @media (max-width: 350px) {
-      > h1 {
-        font-size: 2.8rem;
-      }
-
-      img {
-        width: 3rem;
-        height: 3rem;
-      }
-    }
   }
 
   > label {
@@ -125,7 +123,7 @@ export const Form = styled.form`
 
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     border: none;
-    background-color: none;
+    background: none;
 
     font-family: "Poppins", "serif";
     font-weight: 500;
@@ -157,17 +155,5 @@ export const Form = styled.form`
     padding: 0 10rem;
   }
 
-  @keyframes rotateSignIn {
-    0% {
-      transform: rotate(-180deg);
-      opacity: 0;
-      scale: 0;
-    }
-
-    100% {
-      transform: rotate(0);
-      opacity: 1;
-      scale: 1;
-    }
-  }
+  ${rotateSignInAnimation}
 `;

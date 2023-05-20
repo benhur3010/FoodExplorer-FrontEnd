@@ -5,13 +5,12 @@ import { api } from "../services/api";
 
 export const AuthContext = createContext({});
 
-function AuthProvider ({ children }) {
+function AuthProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({});
   const [dataDishes, setDishes] = useState([]);
 
   async function signIn({ email, password }) {
-
     try {
       setIsLoading(true);
       const response = await api.post("/sessions", { email, password });
@@ -21,18 +20,17 @@ function AuthProvider ({ children }) {
       localStorage.setItem("@foodexplorer:user", JSON.stringify(user));
       localStorage.setItem("@foodexplorer:token", token);
 
-      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
       setData({ user, token });
 
-      toast.success(`Bem vindo(a), ${user.name}!` , {
+      toast.success(`Bem vindo(a), ${user.name}!`, {
         position: toast.POSITION.TOP_CENTER
       });
-
     } catch (error) {
       setIsLoading(false);
-      if (error.response){
-        toast.error(`${error.response.data.message}` , {
+      if (error.response) {
+        toast.error(`${error.response.data.message}`, {
           position: toast.POSITION.TOP_RIGHT
         });
       } else {
@@ -41,17 +39,16 @@ function AuthProvider ({ children }) {
         });
       }
     }
-
   }
 
-  async function fetchDishes () {
+  async function fetchDishes() {
     setIsLoading(true);
     const responseDish = await api.get("/dishes");
     setIsLoading(false);
     setDishes(responseDish.data);
   }
 
-  function signOut () {
+  function signOut() {
     localStorage.removeItem("@foodexplorer:user");
     localStorage.removeItem("@foodexplorer:token");
 
@@ -62,30 +59,31 @@ function AuthProvider ({ children }) {
     const token = localStorage.getItem("@foodexplorer:token");
     const user = localStorage.getItem("@foodexplorer:user");
 
-    if(token && user) {
-      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    if (token && user) {
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
       setData({
         token,
-        user: JSON.parse(user),
+        user: JSON.parse(user)
       });
     }
-  }, 
-  []);
+  }, []);
 
   return (
-    <AuthContext.Provider value={{ 
-      signIn,
-      signOut,
-      fetchDishes,
-      dataDishes,
-      user: data.user,
-      isLoading,
-      setIsLoading
-      }}>
+    <AuthContext.Provider
+      value={{
+        signIn,
+        signOut,
+        fetchDishes,
+        dataDishes,
+        user: data.user,
+        isLoading,
+        setIsLoading
+      }}
+    >
       {children}
     </AuthContext.Provider>
-  )
+  );
 }
 
 function useAuth() {
@@ -94,7 +92,4 @@ function useAuth() {
   return context;
 }
 
-export { 
-  AuthProvider,
-  useAuth
- }
+export { AuthProvider, useAuth };
