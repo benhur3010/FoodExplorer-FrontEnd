@@ -13,7 +13,7 @@ export function AppUsersRoutes() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/detalhe-do-produto/:id" element={<ProductDetail />} />
-      <Route path="/favorites" element={<Favorites />} />
+      <Route path="/favoritos" element={<Favorites />} />
       <Route path="/menu" element={<Menu />} />
       <Route path="/payment" element={<Payment />} />
       <Route path="/carrinho" element={<Requests />} />

@@ -24,7 +24,7 @@ export function Menu() {
   }
 
   function handleClickFavorites() {
-    navigate("/favorites");
+    navigate("/favoritos");
   }
 
   function handleClickBack() {

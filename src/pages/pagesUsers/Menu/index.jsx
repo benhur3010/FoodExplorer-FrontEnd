@@ -21,7 +21,7 @@ export function Menu() {
   const navigate = useNavigate();
 
   function handleClickFavorites() {
-    navigate("/favorites");
+    navigate("/favoritos");
   }
 
   function handleClickBack() {

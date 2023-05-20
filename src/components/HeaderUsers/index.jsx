@@ -86,7 +86,7 @@ export function HeaderUsers({ cartItems, onChange, ...rest }) {
                     <FiClipboard />
                     Menu
                   </Link>
-                  <Link to="/favorites">
+                  <Link to="/favoritos">
                     <FiHeart />
                     Favoritos
                   </Link>
@@ -124,7 +124,7 @@ export function HeaderUsers({ cartItems, onChange, ...rest }) {
             onChange={onChange}
           />
 
-          <Link to="/favorites">Meus favoritos</Link>
+          <Link to="/favoritos">Meus favoritos</Link>
           <Link to="/historic">Histórico de pedidos</Link>
 
           <Link to="/carrinho">

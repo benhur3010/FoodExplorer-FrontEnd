@@ -96,7 +96,7 @@ export function HeaderAdmin({ onChange, ...rest }) {
                     <AiOutlineDatabase />
                     Pedidos
                   </Link>
-                  <Link to="/favorites">
+                  <Link to="/favoritos">
                     <FiHeart />
                     Favoritos
                   </Link>
@@ -135,7 +135,7 @@ export function HeaderAdmin({ onChange, ...rest }) {
             onChange={onChange}
           />
 
-          <Link to="/favorites">Meus favoritos</Link>
+          <Link to="/favoritos">Meus favoritos</Link>
           <Link to="/newdish">Novo prato</Link>
 
           <Link to="/carrinho">
