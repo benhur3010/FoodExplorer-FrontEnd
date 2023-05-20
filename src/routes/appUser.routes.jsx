@@ -6,7 +6,6 @@ import { Home } from "../pages/pagesUsers/Home";
 import { Menu } from "../pages/pagesUsers/Menu";
 import { Requests } from "../pages/pagesUsers/Cart";
 import { Payment } from "../pages/pagesUsers/Payment";
-import { Historic } from "../pages/pagesUsers/Historic";
 
 export function AppUsersRoutes() {
   return (
@@ -17,7 +16,6 @@ export function AppUsersRoutes() {
       <Route path="/menu" element={<Menu />} />
       <Route path="/payment" element={<Payment />} />
       <Route path="/carrinho" element={<Requests />} />
-      <Route path="/historic" element={<Historic />} />
     </Routes>
   );
 }
