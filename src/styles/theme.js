@@ -1,35 +1,35 @@
 export default {
-    COLORS: {
-        LIGHT_100: "#FFF",
-        LIGHT_200: "#FFFAF1",
-        LIGHT_300: "#E1E1E6",
-        LIGHT_400: "#C4C4CC",
-        LIGHT_500: "#7C7C8A",
-        LIGHT_600: "#76797B",
-        LIGHT_700: "#4D585E",
+  COLORS: {
+    LIGHT_100: "#FFF",
+    LIGHT_200: "#FFFAF1",
+    LIGHT_300: "#E1E1E6",
+    LIGHT_400: "#C4C4CC",
+    LIGHT_500: "#7C7C8A",
+    LIGHT_600: "#76797B",
+    LIGHT_700: "#4D585E",
 
-        DARK_100: "#000405",
-        DARK_200: "#00070A",
-        DARK_300: "#000204",
-        DARK_400: "#000A0F",
-        DARK_500: "#000C12",
-        DARK_600: "#00111A",
-        DARK_700: "#001119",
-        DARK_800: "#0D161B",
-        DARK_900: "#0D1D25",
-        DARK_1000: "#192227",
+    BLACK_100: "#000405",
+    BLACK_200: "#00070A",
+    BLACK_300: "#000204",
+    BLACK_400: "#000A0F",
+    BLACK_500: "#000C12",
+    BLACK_600: "#00111A",
+    BLACK_700: "#001119",
+    BLACK_800: "#0D161B",
+    BLACK_900: "#0D1D25",
+    BLACK_1000: "#192227",
 
-        GRADIENT_100: "rgba(0, 10, 15, 0.27)rgba(0, 10, 15, 1)",
+    GRADIENT_100: "rgba(0, 10, 15, 0.27)rgba(0, 10, 15, 1)",
 
-        TOMATO_100: "#750310",
-        TOMATO_200: "#92000E",
-        TOMATO_300: "#AB222E",
-        TOMATO_400: "#AB4D55",
+    RED_100: "#750310",
+    RED_200: "#92000E",
+    RED_300: "#AB222E",
+    RED_400: "#AB4D55",
 
-        CARROT_100: "#FBA94C",
-        MINT: "#04D361",
-        
-        CAKE_100: "#065E7C",
-        CAKE_200: "#82F3FF"
-    }
-}
+    ORANGE: "#FBA94C",
+    GREEN: "#04D361",
+
+    GREEN_DARK: "#065E7C",
+    GREEN_LIGHT: "#82F3FF"
+  }
+};

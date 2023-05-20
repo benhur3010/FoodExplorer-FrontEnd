@@ -5,48 +5,45 @@ export const Container = styled.ul`
   width: 100%;
   min-height: 8rem;
 
-  @media(max-width: 819px) {
+  @media (max-width: 819px) {
     display: grid;
-    grid-template-areas: 
-    "code status date"
-    "details details details"
-    ;
-    border: 2px solid ${({ theme }) => theme.COLORS.DARK_1000};
+    grid-template-areas:
+      "code status date"
+      "details details details";
+    border: 2px solid ${({ theme }) => theme.COLORS.BLACK_1000};
     margin-bottom: 2.4rem;
     border-radius: 1rem;
 
     .status {
-    grid-area: status;
-    border: none;
-    gap: 1rem;
+      grid-area: status;
+      border: none;
+      gap: 1rem;
+    }
+
+    .code {
+      grid-area: code;
+      border: none;
+    }
+
+    .details {
+      grid-area: details;
+      text-align: center;
+      border: none;
+    }
+
+    .date {
+      grid-area: date;
+      border: none;
+    }
   }
 
-  .code {
-    grid-area: code;
-    border: none;
-  }
-
-  .details {
-    grid-area: details;
-    text-align: center;
-    border: none;
-  }
-
-  .date {
-    grid-area: date;
-    border: none;
-  }
-}
-
-
-  
   > div {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     padding: 0 2.5rem;
-    border: 2px solid ${({ theme }) => theme.COLORS.DARK_1000};
+    border: 2px solid ${({ theme }) => theme.COLORS.BLACK_1000};
     border-top: none;
     gap: 1.5rem;
     min-width: 15rem;
@@ -55,9 +52,12 @@ export const Container = styled.ul`
       font-size: 4.3rem;
       left: 23%;
 
-      color: ${({ value, theme }) => value === "Preparando" && theme.COLORS.CARROT_100};
-      color: ${({ value, theme }) => value === "Pendente" && theme.COLORS.TOMATO_100};
-      color: ${({ value, theme }) => value === "Entregue" && theme.COLORS.MINT};
+      color: ${({ value, theme }) =>
+        value === "Preparando" && theme.COLORS.ORANGE};
+      color: ${({ value, theme }) =>
+        value === "Pendente" && theme.COLORS.RED_100};
+      color: ${({ value, theme }) =>
+        value === "Entregue" && theme.COLORS.GREEN};
     }
 
     span {
@@ -65,7 +65,6 @@ export const Container = styled.ul`
       color: ${({ theme }) => theme.COLORS.LIGHT_400};
       font-weight: 400;
     }
-
   }
 
   li:nth-child(2) {
@@ -89,8 +88,5 @@ export const Container = styled.ul`
     font-family: "Roboto", "serif";
     font-size: 1.5rem;
     font-weight: 400;
-
   }
-
-
-`
+`;

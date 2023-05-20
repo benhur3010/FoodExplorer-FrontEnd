@@ -13,7 +13,7 @@ export default createGlobalStyle`
 
     body {
         font-size: 1.6rem;
-        background-color: ${({ theme }) => theme.COLORS.DARK_400};
+        background-color: ${({ theme }) => theme.COLORS.BLACK_400};
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
         overflow: auto;
 
@@ -57,4 +57,4 @@ export default createGlobalStyle`
     a {
         text-decoration: none;
     }
-`
+`;
