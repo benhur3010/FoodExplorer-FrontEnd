@@ -15,7 +15,7 @@ export const Container = styled.div`
         animation: lowOpacity 0.5s linear;
         height: 70vh;
     }
-`
+`;
 
 export const Content = styled.main`
     width: 100%;
@@ -136,7 +136,7 @@ export const Content = styled.main`
             }
     }
 }
-`
+`;
 
 export const Request = styled.div`
     margin: 0 auto;
@@ -190,7 +190,7 @@ export const Request = styled.div`
             font-size: 2rem;
         }
     }
-`
+`;
 
 export const Form = styled.form`
     grid-area: form;
@@ -261,4 +261,4 @@ export const Form = styled.form`
             scale: 1;
         }
     }
-`
+`;

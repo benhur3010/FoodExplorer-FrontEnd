@@ -72,12 +72,9 @@ export function Payment() {
     }
 
     if (!numberCard || !codeSecurity || !validity) {
-      return toast.error(
-        "Preencha todos os campos (os dados não precisam ser verdadeiros)",
-        {
-          position: toast.POSITION.TOP_RIGHT
-        }
-      );
+      return toast.error("Preencha todos os campos corretamente.", {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
 
     handleNewOrder();
@@ -108,12 +105,9 @@ export function Payment() {
         setCart([]);
         setWhenFinish(false);
         isFinish(true);
-        return toast.success(
-          "Pedido confirmado! Aguarde a entrega. Você pode ir acompanhando o pedido na aba 'Histórico de pedidos' ",
-          {
-            position: toast.POSITION.TOP_CENTER
-          }
-        );
+        return toast.success("Pedido confirmado!", {
+          position: toast.POSITION.TOP_CENTER
+        });
       }
       setIsLoading(false);
     } catch (error) {

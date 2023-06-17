@@ -2,7 +2,7 @@ import { Container, MobileWindow, DesktopWindow } from "./styles";
 import {
   AiOutlineMenu,
   AiOutlineShoppingCart,
-  AiOutlineBank,
+  AiOutlineBank
 } from "react-icons/ai";
 import { FiX } from "react-icons/fi";
 import { useAuth } from "../../hooks/auth";
@@ -18,14 +18,14 @@ export function HeaderUsers({ itemsInCart, handleSearchChange, ...props }) {
   const [shoppingCart] = useCart();
   const [isMobileScreen, setIsMobileScreen] = useState(window.innerWidth < 820);
   const [menuOpen, setMenuOpen] = useState(true);
-  const { logout } = useAuth();
+  const { signOut } = useAuth();
   const navigateFunc = useNavigate();
 
   const signOutUser = () => {
     const userConfirmation = window.confirm("Deseja mesmo sair ?");
     if (userConfirmation) {
       navigateFunc("/");
-      logout();
+      signOut();
     }
   };
 
