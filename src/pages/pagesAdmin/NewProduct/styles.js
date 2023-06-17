@@ -5,7 +5,7 @@ export const Container = styled.div`
   grid-template-areas: "header" "form" "footer";
   grid-template-rows: 11.4rem auto 7.7rem;
 
-  .loader {
+  .spinner {
     grid-area: form;
     display: flex;
     align-items: center;
@@ -25,7 +25,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const AppForm = styled.form`
   grid-area: form;
   padding: 1.1rem 3.2rem;
   width: 100%;
@@ -257,7 +257,7 @@ export const Form = styled.form`
   }
 `;
 
-export const UploadImage = styled.div`
+export const ImageUploader = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;

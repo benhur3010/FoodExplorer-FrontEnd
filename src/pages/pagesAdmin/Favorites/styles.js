@@ -7,7 +7,7 @@ export const Container = styled.main`
     overflow-x: hidden;
     height: 100vh;
 
-    .loader {
+    .spinner {
         display: flex;
         margin: auto;
         grid-area: section;
@@ -126,4 +126,4 @@ export const Container = styled.main`
             opacity: 1;
         }
     }
-`
+`;

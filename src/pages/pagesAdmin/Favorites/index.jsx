@@ -68,9 +68,8 @@ export function Favorites() {
   return (
     <Container>
       <HeaderAdmin />
-
       {isLoading ? (
-        <div className="loader">
+        <div className="spinner">
           <ThreeCircles color="#126b37" width="120" height="100" />
         </div>
       ) : (

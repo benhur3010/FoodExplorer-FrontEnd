@@ -68,7 +68,7 @@ export const Container = styled.div`
     }
   }
 
-  .loader {
+  .spinner {
     grid-area: main;
     display: flex;
     margin: auto;
@@ -88,7 +88,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Content = styled.main`
+export const MainContent = styled.main`
   grid-area: main;
 
   width: 100%;
@@ -145,7 +145,7 @@ export const Content = styled.main`
   }
 `;
 
-export const Scrolling = styled.button`
+export const Down = styled.button`
   position: absolute;
   top: 53.5%;
   transform: translateY(-50%);

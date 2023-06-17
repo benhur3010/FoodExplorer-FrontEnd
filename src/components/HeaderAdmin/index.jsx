@@ -136,7 +136,7 @@ export function HeaderAdmin({ onChange, ...rest }) {
           />
 
           <Link to="/favoritos">Meus favoritos</Link>
-          <Link to="/newdish">Novo prato</Link>
+          <Link to="/novo-prato">Novo prato</Link>
 
           <Link to="/carrinho">
             <AiOutlineSchedule />

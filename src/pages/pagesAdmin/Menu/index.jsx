@@ -20,7 +20,7 @@ export function Menu() {
   const navigate = useNavigate();
 
   function handleClickNewDish() {
-    navigate("/newdish");
+    navigate("/novo-prato");
   }
 
   function handleClickFavorites() {

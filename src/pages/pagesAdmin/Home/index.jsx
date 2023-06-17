@@ -1,4 +1,4 @@
-import { Container, Content, Scrolling } from "./styles";
+import { Container, MainContent, Down } from "./styles";
 import { useEffect, useRef, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
@@ -125,11 +125,11 @@ export function Home() {
       <HeaderAdmin onChange={e => setSearch(e.target.value)} />
 
       {isLoading ? (
-        <div className="loader">
+        <div className="spinner">
           <ThreeCircles color="#126b37" width="120" height="100" />
         </div>
       ) : (
-        <Content>
+        <MainContent>
           <About />
 
           <Section title="Refeições">
@@ -150,13 +150,13 @@ export function Home() {
               )}
             </div>
 
-            <Scrolling direction="prev" onClick={handlePrevMealList}>
+            <Down direction="prev" onClick={handlePrevMealList}>
               <FiChevronLeft />
-            </Scrolling>
+            </Down>
 
-            <Scrolling direction="next" onClick={handleNextMealList}>
+            <Down direction="next" onClick={handleNextMealList}>
               <FiChevronRight />
-            </Scrolling>
+            </Down>
           </Section>
 
           <Section title="Sobremesas">
@@ -177,13 +177,13 @@ export function Home() {
               )}
             </div>
 
-            <Scrolling direction="prev" onClick={handlePrevDessertList}>
+            <Down direction="prev" onClick={handlePrevDessertList}>
               <FiChevronLeft />
-            </Scrolling>
+            </Down>
 
-            <Scrolling direction="next" onClick={handleNextDessertList}>
+            <Down direction="next" onClick={handleNextDessertList}>
               <FiChevronRight />
-            </Scrolling>
+            </Down>
           </Section>
 
           <Section title="Bebidas">
@@ -204,15 +204,15 @@ export function Home() {
               )}
             </div>
 
-            <Scrolling direction="prev" onClick={handlePrevDrinkList}>
+            <Down direction="prev" onClick={handlePrevDrinkList}>
               <FiChevronLeft />
-            </Scrolling>
+            </Down>
 
-            <Scrolling direction="next" onClick={handleNextDrinkList}>
+            <Down direction="next" onClick={handleNextDrinkList}>
               <FiChevronRight />
-            </Scrolling>
+            </Down>
           </Section>
-        </Content>
+        </MainContent>
       )}
 
       <Footer />
