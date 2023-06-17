@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import { DishView } from "../pages/pagesAdmin/DishView";
+import { ProductView } from "../pages/pagesAdmin/ProductView";
 import { Favorites } from "../pages/pagesAdmin/Favorites";
 import { Home } from "../pages/pagesAdmin/Home";
 import { Menu } from "../pages/pagesAdmin/Menu";
@@ -12,7 +12,7 @@ export function AppAdminRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/detalhe-do-produto/:id" element={<DishView />} />
+      <Route path="/detalhe-do-produto/:id" element={<ProductView />} />
       <Route path="/favoritos" element={<Favorites />} />
       <Route path="/menu" element={<Menu />} />
       <Route path="/carrinho" element={<Requests />} />
