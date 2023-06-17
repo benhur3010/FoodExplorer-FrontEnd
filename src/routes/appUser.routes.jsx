@@ -14,7 +14,7 @@ export function AppUsersRoutes() {
       <Route path="/detalhe-do-produto/:id" element={<ProductDetail />} />
       <Route path="/favoritos" element={<Favorites />} />
       <Route path="/menu" element={<Menu />} />
-      <Route path="/payment" element={<Payment />} />
+      <Route path="/pagamento" element={<Payment />} />
       <Route path="/carrinho" element={<Requests />} />
     </Routes>
   );

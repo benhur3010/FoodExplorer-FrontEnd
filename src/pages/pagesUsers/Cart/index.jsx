@@ -30,7 +30,7 @@ export function Requests() {
         position: toast.POSITION.TOP_RIGHT
       });
     }
-    navigate("/payment");
+    navigate("/pagamento");
   }
 
   function handleRemoveItemCart(deleted) {
