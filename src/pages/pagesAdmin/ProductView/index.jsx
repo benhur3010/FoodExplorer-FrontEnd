@@ -27,7 +27,7 @@ export function ProductView({ ...rest }) {
   }
 
   function handleEditClick() {
-    navigate(`/editdish/${params.id}`);
+    navigate(`/editar-produto/${params.id}`);
   }
 
   useEffect(() => {

@@ -21,7 +21,7 @@ export function DishAdmin({ data, onClick, isFavorite = false, ...rest }) {
   }
 
   function handleClickEditDish() {
-    navigate(`/editdish/${id}`);
+    navigate(`/editar-produto/${id}`);
   }
 
   useEffect(() => {
