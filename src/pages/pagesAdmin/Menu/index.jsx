@@ -1,4 +1,4 @@
-import { Container, Content } from "./styles";
+import { Container, MainContent } from "./styles";
 import { FiX } from "react-icons/fi";
 import { FiSearch } from "react-icons/fi";
 
@@ -73,7 +73,7 @@ export function Menu() {
         <h2>Menu</h2>
       </header>
 
-      <Content>
+      <MainContent>
         <Input
           type="text"
           icon={FiSearch}
@@ -123,7 +123,7 @@ export function Menu() {
             </Section>
           </>
         )}
-      </Content>
+      </MainContent>
 
       <Footer />
     </Container>

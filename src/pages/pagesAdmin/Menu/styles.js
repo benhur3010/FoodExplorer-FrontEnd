@@ -34,7 +34,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Content = styled.main`
+export const MainContent = styled.main`
   width: 100%;
   max-width: 136.6rem;
   display: flex;

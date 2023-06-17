@@ -15,7 +15,7 @@ import { useState } from "react";
 import { ThreeCircles } from "react-loader-spinner";
 import { toast } from "react-toastify";
 
-export function NewDish() {
+export function NewProduct() {
   const { isLoading, setIsLoading } = useAuth();
 
   const [name, setName] = useState("");
