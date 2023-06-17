@@ -9,34 +9,33 @@ export const Container = styled.header`
   background-color: ${({ theme }) => theme.COLORS.BLACK_700};
   position: fixed;
   z-index: 1;
-  animation: lowOpacity 0.5s linear;
+  animation: fadeEffect 0.5s linear;
 
-  @keyframes lowOpacity {
-    0% {
+  @keyframes fadeEffect {
+    from {
       opacity: 0;
     }
 
-    100% {
+    to {
       opacity: 1;
     }
   }
 `;
 
-export const WindowMobile = styled.main`
+export const MobileWindow = styled.main`
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 
   > a {
-    background: none;
-    border: none;
-    animation: rightleft 0.7s ease;
+    background: transparent;
+    border: 0;
+    animation: slideRight 0.7s ease;
 
     svg {
       width: 2.5rem;
       height: 2.5rem;
-
       color: ${({ theme }) => theme.COLORS.LIGHT_100};
     }
   }
@@ -46,9 +45,8 @@ export const WindowMobile = styled.main`
     display: flex;
     gap: 0.5rem;
     top: -12%;
-
     background-color: ${({ theme }) => theme.COLORS.BLACK_700};
-    animation: leftright 0.7s ease;
+    animation: slideLeft 0.7s ease;
 
     > a {
       z-index: 1;
@@ -60,13 +58,13 @@ export const WindowMobile = styled.main`
       top: -70%;
       background-color: ${({ theme }) => theme.COLORS.BLACK_700};
       border-radius: 8px;
-
       padding: 1rem 2rem;
     }
 
     a {
       max-height: 1rem;
     }
+
     svg {
       font-size: 3rem;
       color: ${({ theme }) => theme.COLORS.LIGHT_300};
@@ -79,10 +77,9 @@ export const WindowMobile = styled.main`
       font-family: "Roboto", "serif";
       font-weight: 400;
       font-size: 1.6rem;
-
       margin-bottom: 1.8rem;
-
       color: ${({ theme }) => theme.COLORS.LIGHT_300};
+
       svg {
         font-size: 2rem;
       }
@@ -103,7 +100,6 @@ export const WindowMobile = styled.main`
     a {
       font-family: "Roboto", "serif";
       font-weight: bold;
-
       font-size: 2.1rem;
       color: ${({ theme }) => theme.COLORS.LIGHT_100};
     }
@@ -117,7 +113,6 @@ export const WindowMobile = styled.main`
       svg {
         width: 2.5rem;
         height: 2.5rem;
-
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
       }
     }
@@ -127,13 +122,10 @@ export const WindowMobile = styled.main`
       border-radius: 99px;
       padding: 0 5px;
       height: 22px;
-
       font-family: "Poppins", "serif";
       font-weight: 500;
       font-size: 1.4rem;
-
       background-color: ${({ theme }) => theme.COLORS.RED_100};
-
       position: relative;
       top: -1.8rem;
       left: -1rem;
@@ -148,7 +140,7 @@ export const WindowMobile = styled.main`
     }
   }
 
-  @keyframes leftright {
+  @keyframes slideLeft {
     0% {
       opacity: 0;
       transform: translateX(-50%);
@@ -160,7 +152,7 @@ export const WindowMobile = styled.main`
     }
   }
 
-  @keyframes rightleft {
+  @keyframes slideRight {
     0% {
       opacity: 0;
       transform: translateX(50%);
@@ -173,7 +165,7 @@ export const WindowMobile = styled.main`
   }
 `;
 
-export const WindowDesktop = styled.main`
+export const DesktopWindow = styled.main`
   display: flex;
   align-items: center;
   width: 100%;
@@ -218,9 +210,8 @@ export const WindowDesktop = styled.main`
     }
   }
 
-  a:nth-child(5) {
+  a:nth-child(4) {
     width: clamp(15rem, 17rem, 18.7rem);
-
     font-family: "Poppins", "serif";
     font-weight: 500;
     font-size: 1.4rem;
@@ -228,10 +219,8 @@ export const WindowDesktop = styled.main`
     align-items: center;
     justify-content: center;
     gap: 1rem;
-
     background-color: ${({ theme }) => theme.COLORS.RED_100};
     height: 4.8rem;
-
     border: none;
     border-radius: 8px;
   }

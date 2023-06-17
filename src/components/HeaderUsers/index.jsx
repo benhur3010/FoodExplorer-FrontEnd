@@ -1,86 +1,73 @@
-import { Container, WindowMobile, WindowDesktop } from "./styles";
+import { Container, MobileWindow, DesktopWindow } from "./styles";
 import {
   AiOutlineMenu,
   AiOutlineShoppingCart,
   AiOutlineBank,
-  AiOutlineDatabase
 } from "react-icons/ai";
 import { FiX } from "react-icons/fi";
-
 import { useAuth } from "../../hooks/auth";
 import { useCart } from "../../hooks/cart";
-
 import { FiLogOut, FiSearch, FiHeart, FiClipboard } from "react-icons/fi";
 import { ButtonText } from "../ButtonText";
 import { Input } from "../Input";
-
 import { useEffect, useState } from "react";
-
-import logo from "../../assets/polygonTitle.svg";
+import logoImg from "../../assets/polygonTitle.svg";
 import { Link, useNavigate } from "react-router-dom";
 
-export function HeaderUsers({ cartItems, onChange, ...rest }) {
-  const [cart, setCart] = useCart();
-  const [isScreenMobile, setIsScreenMobile] = useState(window.innerWidth < 820);
-  const [openMenu, setOpenMenu] = useState(true);
+export function HeaderUsers({ itemsInCart, handleSearchChange, ...props }) {
+  const [shoppingCart] = useCart();
+  const [isMobileScreen, setIsMobileScreen] = useState(window.innerWidth < 820);
+  const [menuOpen, setMenuOpen] = useState(true);
+  const { logout } = useAuth();
+  const navigateFunc = useNavigate();
 
-  const { signOut } = useAuth();
-  const navigate = useNavigate();
-
-  function handleSignOut() {
-    const confirm = window.confirm("Deseja mesmo sair ?");
-
-    if (confirm) {
-      navigate("/");
-      signOut();
+  const signOutUser = () => {
+    const userConfirmation = window.confirm("Deseja mesmo sair ?");
+    if (userConfirmation) {
+      navigateFunc("/");
+      logout();
     }
-  }
+  };
 
-  function handleClickRequests() {
-    navigate("/carrinho");
-  }
+  const navigateToCart = () => {
+    navigateFunc("/carrinho");
+  };
 
-  function handleClickOpenMenu() {
-    setOpenMenu(false);
-  }
+  const openMenuClick = () => {
+    setMenuOpen(false);
+  };
 
-  function handleClickCloseMenu() {
-    setOpenMenu(true);
-  }
+  const closeMenuClick = () => {
+    setMenuOpen(true);
+  };
 
   useEffect(() => {
-    const handleWindowResize = () => {
-      setIsScreenMobile(window.innerWidth < 820);
+    const resizeWindow = () => {
+      setIsMobileScreen(window.innerWidth < 820);
     };
-    handleWindowResize();
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => window.removeEventListener("resize", handleWindowResize);
+    resizeWindow();
+    window.addEventListener("resize", resizeWindow);
+    return () => window.removeEventListener("resize", resizeWindow);
   }, []);
 
   return (
-    <Container {...rest}>
-      {isScreenMobile ? (
-        <WindowMobile>
-          {openMenu ? (
-            <a onClick={handleClickOpenMenu}>
+    <Container {...props}>
+      {isMobileScreen ? (
+        <MobileWindow>
+          {menuOpen ? (
+            <a onClick={openMenuClick}>
               <AiOutlineMenu />
             </a>
           ) : (
             <nav>
-              <Link onClick={handleClickCloseMenu}>
+              <Link onClick={closeMenuClick}>
                 <FiX />
               </Link>
-
               <ul>
                 <li>
                   <Link to="/">
                     <AiOutlineBank />
                     Home
-                  </Link>
-                  <Link to="/historic">
-                    <AiOutlineDatabase />
-                    Histórico
                   </Link>
                   <Link to="/menu">
                     <FiClipboard />
@@ -90,7 +77,7 @@ export function HeaderUsers({ cartItems, onChange, ...rest }) {
                     <FiHeart />
                     Favoritos
                   </Link>
-                  <a onClick={handleSignOut}>
+                  <a onClick={signOutUser}>
                     <FiLogOut />
                     Sair
                   </a>
@@ -98,42 +85,35 @@ export function HeaderUsers({ cartItems, onChange, ...rest }) {
               </ul>
             </nav>
           )}
-
           <header>
-            <img src={logo} alt="logo" />
+            <img src={logoImg} alt="logo" />
             <Link to="/">food explorer</Link>
           </header>
-
           <div>
-            <button onClick={handleClickRequests}>
+            <button onClick={navigateToCart}>
               <AiOutlineShoppingCart />
             </button>
-            <span>{(cartItems = cart.length)}</span>
+            <span>{(itemsInCart = shoppingCart.length)}</span>
           </div>
-        </WindowMobile>
+        </MobileWindow>
       ) : (
-        <WindowDesktop>
+        <DesktopWindow>
           <span>
-            <img src={logo} alt="logo" />
+            <img src={logoImg} alt="logo" />
             <Link to="/">food explorer</Link>
           </span>
-
           <Input
             icon={FiSearch}
             placeholder="Busque por pratos ou ingredientes"
-            onChange={onChange}
+            onChange={handleSearchChange}
           />
-
           <Link to="/favoritos">Meus favoritos</Link>
-          <Link to="/historic">Histórico de pedidos</Link>
-
           <Link to="/carrinho">
             <AiOutlineShoppingCart />
-            Carrinho ({(cartItems = cart.length)})
+            Carrinho ({(itemsInCart = shoppingCart.length)})
           </Link>
-
-          <ButtonText icon={FiLogOut} onClick={handleSignOut} />
-        </WindowDesktop>
+          <ButtonText icon={FiLogOut} onClick={signOutUser} />
+        </DesktopWindow>
       )}
     </Container>
   );
